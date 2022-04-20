@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: flexran-nr-exporter1
+  labels:
+    app: flexran-nr-exporter1
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8000"
+spec:
+    nodeSelector:
+      deploy: vm1
+    volumes:
+      - name: sharedfilel1
+        hostPath:
+          path: /home/k8suser/fleran-exporter
+    containers:
+    - name: exporter
+      image: flexran.registry/exporter:latest
+      imagePullPolicy: Never
+      ports:
+       - name: metrics
+         containerPort: 8000
+      volumeMounts:
+       - name: sharedfilel1
+         mountPath: /applogs/
