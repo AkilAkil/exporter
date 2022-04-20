@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: flexran-nr-exporter1
+  name: flexran-nr-exporter
   labels:
-    app: flexran-nr-exporter1
+    app: flexran-nr-exporter
   annotations:
     prometheus.io/scrape: "true"
     prometheus.io/port: "8000"
@@ -16,8 +16,7 @@ spec:
           path: /home/k8suser/fleran-exporter
     containers:
     - name: exporter
-      image: flexran.registry/exporter:latest
-      imagePullPolicy: Never
+      image: flexran.exporter:latest
       ports:
        - name: metrics
          containerPort: 8000
