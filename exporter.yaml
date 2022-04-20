@@ -16,7 +16,7 @@ spec:
           path: /home/k8suser/fleran-exporter
     containers:
     - name: exporter
-      image: flexran.exporter:latest
+      image: 10.11.100.171:5000/flexran.exporter:latest
       ports:
        - name: metrics
          containerPort: 8000
