@@ -23,8 +23,8 @@ node('jenkins-slave') {
            echo "***Publish Docker image to Registry****"
            echo "***************************************"
 
-        docker  tag flexran.exporter:latest localhost:5000/flexran.exporter
-        docker push localhost:5000/flexran.exporter
+        docker  tag flexran.exporter:latest ${dockerhub}
+        docker push ${dockerhub}
         """)
     }
     
