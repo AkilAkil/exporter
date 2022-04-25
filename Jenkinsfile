@@ -37,7 +37,7 @@ node('jenkins-slave') {
            echo "*************************************"
        """)
 
-        withCredentials([file(credentialsId: 'mykubeconfigfile', variable: 'KUBECONFIG')]){
+        withCredentials([file(credentialsId: ${kubeconfig}, variable: 'KUBECONFIG')]){
         sh 'kubectl apply -f exporter.yaml'
     }
   }
