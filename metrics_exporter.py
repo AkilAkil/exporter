@@ -28,7 +28,7 @@ cores = os.getenv("CORES_TO_MONITOR" ,  "0,3")
 hostname=platform.node()
 
 def main():
-    start_http_server(8000)
+    start_http_server(8100)
     Thread(target = gather_metrics).start()
     Thread(target = parse_core_metrics).start()
     while True:
